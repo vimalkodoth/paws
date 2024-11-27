@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Bone, PawPrintIcon as Paw, Coins, Heart, Dog } from 'lucide-react'
+import { Bone, PawPrint as Paw, Coins, Heart, Dog } from 'lucide-react'
+import Image from 'next/image';
 
 export default function PawsitiveCryptoPage() {
   const [pawCount, setPawCount] = useState(0)
@@ -19,11 +20,10 @@ export default function PawsitiveCryptoPage() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="text-6xl md:text-8xl font-bold text-purple-800 mb-8"
+        className="text-6xl md:text-8xl font-bold text-[#f25c66] mb-8"
       >
         Being <i>Pawsitive!</i>
       </motion.h1>
-
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -32,32 +32,40 @@ export default function PawsitiveCryptoPage() {
       >
         Unleash positivity into the world with Paw-sitive Vibes!
       </motion.div>
-
+      <Image
+        src="/0x0.jpg" // Required
+        alt="Being Positive!" // Required
+        width={500} // Required
+        height={300} // Required
+        priority // Optional
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." // Optional
+        placeholder="blur" // Optional
+      />
       <div className="relative w-48 h-48 mb-8" aria-label="Animated illustration of a happy dog wagging its tail">
-        <Dog className="w-full h-full text-purple-800" />
+        <Dog className="w-full h-full text-[#f25c66]" />
         <div className="absolute bottom-0 right-0 w-12 h-24 origin-bottom-right animate-wag">
-          <div className="w-full h-full bg-purple-800 rounded-full transform -rotate-45"></div>
+          <div className="w-full h-full bg-[#f25c66] rounded-full transform -rotate-45"></div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <FeatureCard
-          icon={<Bone className="w-12 h-12 text-purple-600" />}
+          icon={<Bone className="w-12 h-12 text-[#f25c66]" />}
           title="Bone-afide Currency"
           description="Our token is the real deal, no bones about it!"
         />
         <FeatureCard
-          icon={<Paw className="w-12 h-12 text-purple-600" />}
+          icon={<Paw className="w-12 h-12 text-[#f25c66]" />}
           title="Paw-some Returns"
           description="Watch your investment grow faster than a puppy!"
         />
         <FeatureCard
-          icon={<Coins className="w-12 h-12 text-purple-600" />}
+          icon={<Coins className="w-12 h-12 text-[#f25c66]" />}
           title="Fetch Great Deals"
           description="Sniff out amazing opportunities in the crypto world!"
         />
         <FeatureCard
-          icon={<Heart className="w-12 h-12 text-purple-600" />}
+          icon={<Heart className="w-12 h-12 text-[#f25c66]" />}
           title="Loyal Community"
           description="Join a pack that's always got your back!"
         />
@@ -66,7 +74,7 @@ export default function PawsitiveCryptoPage() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-purple-600 text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg hover:bg-purple-700 transition duration-300"
+          className="bg-[#f25c66] text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg hover:bg-purple-700 transition duration-300"
         >
           Get Your Paws on Some Tokens!
         </motion.button>
@@ -102,8 +110,8 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
       className="bg-white rounded-lg p-6 shadow-md"
     >
       <div className="flex justify-center mb-4">{icon}</div>
-      <h3 className="text-xl font-bold text-purple-800 mb-2">{title}</h3>
-      <p className="text-purple-900">{description}</p>
+      <h3 className="text-xl font-bold text-[#f25c66] mb-2">{title}</h3>
+      <p className="text-[#f25c66]">{description}</p>
     </motion.div>
   )
 }
